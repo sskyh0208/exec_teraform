@@ -1,3 +1,5 @@
-*.terraform
-*.terraform.tfstate
-*.env.tfbackend
+/terraform/env/**/.terraform
+/terraform/env/**/.terraform.tfstate
+/terraform/env/**/.terraform.lock.hcl
+/terraform/env/**/env.tfbackend
+/dockerfile/terraform/.env

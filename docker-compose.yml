@@ -5,7 +5,7 @@ services:
     build:
       context: ./
       dockerfile: ./dockerfile/terraform/Dockerfile
-    tty: true
     volumes:
-      - ./:/terraform
-    
+      - ./terraform:/terraform
+    env_file:
+      - ./dockerfile/terraform/.env
