@@ -23,13 +23,13 @@ TEMPLATE_PATH=./bin/template.tfbackend
 BACKEND_CONFIG_FILE_PATH=$DEPLOY_DIR/env.tfbackend
 export DATA_SOURCE_BUCKET_NAME="$APP_NAME-datasource-$ACCOUNT_ID"
 export ENV=$ENV
-envsubst '$$DATA_SOURCE_BUCKET_NAME,$$ENV' < $TEMPLATE_PATH > $BACKEND_CONFIG_FILE_PATH
+envsubst '$$DATA_SOURCE_BUCKET_NAME,$$AWS_DEFAULT_REGION,$$ENV' < $TEMPLATE_PATH > $BACKEND_CONFIG_FILE_PATH
 
 cd $DEPLOY_DIR
 
 # terraformの実行
 terraform init --reconfigure -backend-config=env.tfbackend
 
-terraform apply -auto-approve -var 'app_name=${APP_NAME}'
+terraform apply -auto-approve -var 'app_name='${APP_NAME}
 
 cd $EXEC_DIRNAME

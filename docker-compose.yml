@@ -9,3 +9,4 @@ services:
       - ./terraform:/terraform
     env_file:
       - ./dockerfile/terraform/.env
+    tty: true
